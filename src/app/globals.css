@@ -1,26 +1,117 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================================================
+ * DARK MODE
+ * ----------------------------------------------------------------------------
+ * Tailwind v4 has no built-in "class" dark mode strategy out of the box — by
+ * default it follows the OS-level prefers-color-scheme. Since we're using
+ * next-themes (which toggles a `dark` class on <html> so the user's choice
+ * can override their OS setting and persist across visits), we tell Tailwind
+ * to treat that class as the dark-mode signal instead.
+ * ========================================================================= */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ============================================================================
+ * BRAND TOKENS
+ * ----------------------------------------------------------------------------
+ * Fixed colors that never change between light/dark mode (the brand is the
+ * brand regardless of theme). Declaring these in a plain `@theme` block makes
+ * Tailwind generate matching utilities automatically: bg-ink, text-cobalt,
+ * border-copper, font-display, etc.
+ * ========================================================================= */
+@theme {
+  --color-ink: #0b1f3a;        /* deep navy — dark-mode surface, light-mode header/footer */
+  --color-cobalt: #1e4fd6;     /* primary accent — CTAs, links, active states */
+  --color-cobalt-light: #4d74e8;
+  --color-copper: #c8793a;     /* single warm accent, used sparingly by design */
+  --color-paper: #f7f9fc;      /* light-mode background */
+  --color-slate-900: #111827;
+  --color-slate-100: #e5eaf2;
+
+  --font-display: var(--font-space-grotesk);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-plex-mono);
 }
 
+/* ============================================================================
+ * SEMANTIC TOKENS
+ * ----------------------------------------------------------------------------
+ * These DO change between light and dark mode. We keep them as plain CSS
+ * variables (not Tailwind theme values) so flipping the `.dark` class on
+ * <html> instantly swaps every value at once — no JS re-render required.
+ * ========================================================================= */
+:root {
+  --background: var(--color-paper);
+  --foreground: var(--color-slate-900);
+  --surface: #ffffff;
+  --border-subtle: #e2e8f0;
+}
+
+.dark {
+  --background: var(--color-ink);
+  --foreground: var(--color-slate-100);
+  --surface: #102544;
+  --border-subtle: #1c3a63;
+}
+
+/* `inline` makes Tailwind reference these CSS variables directly at runtime
+ * instead of baking in a fixed value at build time — required for the
+ * light/dark swap above to actually take effect live in the browser. */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+  --color-border-subtle: var(--border-subtle);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* ============================================================================
+ * BASE STYLES
+ * ========================================================================= */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+/* Visible keyboard focus is a baseline accessibility requirement, not a
+ * nice-to-have — never remove this without replacing it with something
+ * equally visible. */
+:focus-visible {
+  outline: 2px solid var(--color-cobalt);
+  outline-offset: 2px;
+}
+
+/* Respect the user's OS-level motion preference. Anyone with this setting
+ * on has usually asked for it for a real reason (vestibular disorders,
+ * motion sensitivity) — so animations collapse to instant, not "faster". */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================================
+ * MARQUEE ANIMATION
+ * ----------------------------------------------------------------------------
+ * Pure CSS keyframe — runs on the compositor thread, costs nothing on the
+ * main thread, and works with zero JavaScript. The track is rendered twice
+ * back-to-back in the component, and this animates exactly -50% (one full
+ * copy's width) so the loop point is invisible.
+ * ========================================================================= */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 32s linear infinite;
 }
