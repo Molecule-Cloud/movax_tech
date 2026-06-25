@@ -115,3 +115,31 @@ body {
 .animate-marquee {
   animation: marquee 32s linear infinite;
 }
+
+/* ============================================================================
+ * HERO NODE-PULSE ANIMATION
+ * ----------------------------------------------------------------------------
+ * A handful of nodes in the hero's background mesh slowly breathe (scale +
+ * fade) to suggest a "live system," not a static illustration. `fill-box` /
+ * `center` are required on SVG elements — without them, a CSS `transform:
+ * scale()` scales from the SVG document's (0,0) origin instead of the
+ * shape's own center, which looks like the dot flying across the canvas
+ * rather than pulsing in place.
+ * ========================================================================= */
+@keyframes node-pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.6);
+  }
+}
+
+.animate-node-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: node-pulse 4s ease-in-out infinite;
+}
