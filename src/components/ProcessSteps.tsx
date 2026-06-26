@@ -115,7 +115,7 @@ export function ProcessSteps() {
           className="relative order-1 aspect-[4/5] overflow-hidden rounded-2xl bg-surface lg:order-2 lg:aspect-auto lg:min-h-[420px]"
         >
           <Image
-            src="/process/our-process.jpg"
+            src="/services/our-process.jpg"
             alt="A Movax engineer reviewing a project architecture plan"
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"
