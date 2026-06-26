@@ -8,11 +8,13 @@
  */
 import { HeroBackground } from "@/components/HeroBackground";
 import { HeroContent } from "@/components/HeroContent";
+import { HeroPartners } from "@/components/HeroPartners";
 
 export function Hero() {
   return (
     <section className="relative flex min-h-[85vh] items-center overflow-hidden">
       <HeroBackground />
+      {/* <HeroPartners /> */}
       <HeroContent />
     </section>
   );
