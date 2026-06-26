@@ -16,7 +16,7 @@
  *
  * 2. We use `bg-surface` rather than a hardcoded white. `--surface` resolves
  *    to white in light mode (matching the "white background" ask) but to a
- *    deep navy panel in dark mode — so toggling dark mode doesn't leave a
+ *    deep navy panel in dark mode - so toggling dark mode doesn't leave a
  *    jarring white band in an otherwise dark page. If you'd rather this
  *    section stay pure white even in dark mode as a deliberate contrast
  *    moment, that's a one-word change (`bg-surface` → `bg-white`) — flagging
@@ -45,8 +45,6 @@ export function TrustImage() {
 
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 md:grid-cols-2">
         <div className="relative">
-          {/* Decorative offset panel behind the photo — adds depth without
-           * adding a second real image asset to load. */}
           <div
             aria-hidden="true"
             className="absolute -top-4 -right-4 h-full w-full rounded-2xl bg-cobalt/10"
@@ -55,7 +53,6 @@ export function TrustImage() {
             <Image
               src="https://images.unsplash.com/photo-1622295023876-0cdf583c41f6?fm=jpg&q=80&w=1200&fit=crop"
               alt="A Movax technology consultant working at a laptop"
-              fill
               sizes="(min-width: 768px) 50vw, 100vw"
               className="object-cover"
               // This image sits in the very first viewport-visible section

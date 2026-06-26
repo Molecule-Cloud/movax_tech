@@ -7,23 +7,8 @@
  * a vertical list beside a single supporting image. Numbered because it's
  * a genuine sequence, not decoration.
  *
- * This is also the first place `text-copper` gets used since the original
- * design plan. Not an oversight: copper was deliberately reserved for "a
- * real sequence marker," and every other accent on the site so far has used
- * cobalt instead — spending the one warm color in exactly one place is what
- * keeps it reading as a signature rather than just another color in the
- * palette.
- *
- * IMAGE SETUP: same pattern as the Services grid — this points at
- * `/process/our-process.jpg`, a real file under `public/process/` that
- * doesn't exist yet. Drop a photo there with that exact filename and it
- * appears with zero code changes; until then it's a broken-image icon,
- * which is expected.
- *
- * The stagger (each step fading in after the one before it, then the image)
- * deliberately echoes the content: a process that happens in sequence,
- * revealed in sequence.
  */
+
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import Image from "next/image";
 
@@ -31,12 +16,12 @@ const STEPS = [
   {
     title: "Assess",
     description:
-      "We start by understanding how your business actually operates today — the systems, workflows, and bottlenecks already in place — before recommending anything.",
+      "We start by understanding how your business actually operates today - the systems, workflows, and bottlenecks already in place - before recommending anything.",
   },
   {
     title: "Architect",
     description:
-      "We design the right technical approach for your specific situation: the stack, the infrastructure, the integrations — planned before a single line of code is written.",
+      "We design the right technical approach for your specific situation: the stack, the infrastructure, the integrations - planned before a single line of code is written.",
   },
   {
     title: "Build",

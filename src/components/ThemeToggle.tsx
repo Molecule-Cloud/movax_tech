@@ -12,16 +12,9 @@
  * hydration corrects it. The placeholder div below reserves the same size
  * so nothing shifts on screen while we wait.
  *
- * Why useSyncExternalStore instead of the classic
- * `useState + useEffect(() => setMounted(true))` pattern: that older pattern
- * calls setState from inside an effect purely to react to something that
- * never changes after mount — exactly what React's newer lint rule
- * (react-hooks/set-state-in-effect) flags as an anti-pattern, because it
- * causes an extra cascading render. useSyncExternalStore is built for
- * precisely this "value differs between server and client" case: it returns
- * the server snapshot during SSR and the very first client render, then the
- * real client snapshot once hydration is done — with no setState involved.
  */
+
+
 import { useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";

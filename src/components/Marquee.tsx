@@ -34,7 +34,7 @@ function MarqueeTrack() {
       {SERVICES.map((service) => (
         <span
           key={service}
-          className="flex items-center gap-10 pr-10 font-mono text-xs uppercase tracking-wider text-foreground/60"
+          className="flex items-center gap-10 pr-10 font-mono text-xs uppercase tracking-wider text-foreground/90"
         >
           {service}
           <span className="text-copper">•</span>

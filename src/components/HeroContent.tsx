@@ -46,11 +46,11 @@ export function HeroContent() {
       variants={container}
       initial="hidden"
       animate="show"
-      className="relative z-10 mx-auto max-w-3xl px-6 text-center"
+      className="relative z-10 mx-auto max-w-4xl px-6 text-center"
     >
       <motion.p
         variants={item}
-        className="mb-5 font-mono text-xs uppercase tracking-[0.2em] text-cobalt"
+        className="mb-4 font-mono text-xs uppercase tracking-[0.2em] text-cobalt"
       >
         Digital Transformation Partner — Ghana &amp; Africa
       </motion.p>
@@ -59,16 +59,16 @@ export function HeroContent() {
         variants={item}
         className="font-display text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl md:text-6xl"
       >
-        We architect the systems behind your next stage of growth.
+        We don't just build websites.
+        We build solutions for your growth!
       </motion.h1>
 
       <motion.p
         variants={item}
         className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-foreground/70 sm:text-lg"
       >
-        We help startups, SMEs, NGOs, and institutions across Ghana and Africa
-        replace manual, disconnected processes with software, data, and
-        automation built around how the business actually runs.
+        AT MOVAX Technologies, we solve real business problems through technology, help organizations operate more efficiently, and become a leading force in digital transformation across Ghana amd Africa.
+        Every software solution we undertake is aimed at creating value, drive innovation, and leave a lasting impact on our clients.
       </motion.p>
 
       <motion.div

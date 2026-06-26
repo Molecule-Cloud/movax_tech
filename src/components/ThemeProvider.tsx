@@ -3,19 +3,15 @@
 /**
  * ThemeProvider
  * ----------------------------------------------------------------------------
- * Thin wrapper around `next-themes`, so the rest of the app imports theming
- * from "@/components/theme-provider" without needing to know which library
- * is doing the work underneath. If we ever swap theming libraries, this is
- * the only file that changes.
+ * This component wraps the `next-themes` library to provide a consistent theme
+ * management system throughout the application. It sets the theme based on the
+ * user's OS preference by default, but allows for explicit theme selection and
+ * persistence using the `ThemeToggle` component.
  *
- * `attribute="class"` tells next-themes to toggle a `dark` class on <html>
- * (rather than e.g. a data-attribute) — this is what the `@custom-variant
- * dark` rule in globals.css is watching for.
- *
- * `enableSystem` means a first-time visitor gets their OS preference by
- * default, but `setTheme` (used in ThemeToggle) can override and persist
- * an explicit choice in localStorage from then on.
+ * @param children - The child components that will receive the theme context.
+ * @param props - Additional props to be passed to the `next-themes` provider.
  */
+
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import type { ComponentProps } from "react";
  
