@@ -1,14 +1,17 @@
 /**
  * Hero
  * ----------------------------------------------------------------------------
- * The page's opening section. Composes the ambient background (server
- * component, static SVG) with the animated content (client component,
- * framer-motion) — kept in separate files so only the piece that actually
- * needs interactivity ships as client-side JavaScript.
+ * The hero section of the website, which includes the main headline, subheading,
+ * and call-to-action button.
+ *
+ * This component is responsible for displaying the hero content and styling it
+ * appropriately. It also handles the click event for the "Get Started" button.
+ *
+ * @param children - The child components that will be rendered inside the hero.
  */
 import { HeroBackground } from "@/components/HeroBackground";
 import { HeroContent } from "@/components/HeroContent";
-import { HeroPartners } from "@/components/HeroPartners";
+// import { HeroPartners } from "@/components/HeroPartners";
 
 export function Hero() {
   return (

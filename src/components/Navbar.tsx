@@ -34,7 +34,7 @@ export function Navbar() {
           href="/"
           className="font-display text-lg font-semibold tracking-tight text-foreground"
         >
-          MOVAX<span className="text-cobalt">.</span>
+          MOVAX<span className="text-cobalt">*</span>
         </Link>
  
         <ul className="hidden items-center gap-8 md:flex">
@@ -42,7 +42,7 @@ export function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-sm font-medium text-foreground/80 transition-colors hover:text-cobalt"
+                className="text-sm font-medium text-foreground/80 transition-colors hover:text-cobalt hover:bg-white rounded-full px-3 py-1.5"
               >
                 {link.label}
               </a>
@@ -54,7 +54,7 @@ export function Navbar() {
           <ThemeToggle />
           <a
             href="#contact"
-            className="hidden rounded-full bg-cobalt px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-cobalt-light sm:inline-block"
+            className="hidden rounded-full bg-cobalt px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-cobalt sm:inline-block"
           >
             Start a Project
           </a>

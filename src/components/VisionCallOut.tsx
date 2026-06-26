@@ -14,10 +14,7 @@
  * on mobile) — the same structured-divider language already used in the
  * Services accordion, so the page reads as one consistent system rather
  * than a collection of differently-styled sections.
- *
- * `whileInView` (instead of the on-mount animation used in the Hero) means
- * this reveals itself as the visitor scrolls down to it, not all at once on
- * page load — `viewport={{ once: true }}` makes sure it only plays once,
+ re it only plays once,
  * not every time it scrolls in and out of view.
  */
 import { motion, useReducedMotion, type Variants } from "framer-motion";
@@ -55,7 +52,7 @@ export function VisionCallout() {
         <div className="border-t border-border-subtle pt-8 md:border-t-0 md:border-l md:pt-0 md:pl-12 lg:pl-16">
           <p className="text-lg leading-relaxed text-foreground/80 sm:text-xl">
             We&apos;re building toward being recognized as one of Ghana&apos;s
-            leading digital transformation and software solutions companies —
+            leading digital transformation and software solutions companies - 
             serving businesses across Africa with technology, service, and
             results that hold up under scrutiny.
           </p>

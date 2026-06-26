@@ -1,23 +1,21 @@
 /**
  * HeroBackground
  * ----------------------------------------------------------------------------
- * The hero's signature element: a quiet mesh of connected nodes, ambient in
- * the background. It's meant to read as "systems, connected" — a visual
- * echo of what Movax actually does (architecting connected technology
- * systems), not a decorative pattern chosen for its own sake.
- *
- * Pure SVG + CSS animation, no JavaScript: it's server-rendered once and
- * costs nothing on the main thread. `currentColor` lets it inherit the
- * cobalt brand color from the wrapping element's `text-cobalt/*` class, so
- * it adapts automatically between light and dark mode without a single
- * `dark:` variant.
- *
- * Node positions are a fixed array, not randomized at render time —
- * randomizing per-render would make the server and the browser roll
- * different numbers and cause a hydration mismatch. Fixed placement also
- * means the composition is deliberate rather than accidental.
+ * 
+ * This component renders the background for the Hero section of the page.
+ * The background is an SVG composition that includes lines and circles.
+ * The lines and circles are positioned based on a fixed array of node positions.
+ * The lines are rendered using the `line` SVG element, and the circles are rendered using the `circle` SVG element.
+ * The circles that pulse are determined by the `PULSING_NODE_INDEXES` set.
+ * The lines and circles are animated using CSS animations.
+ * The component is server-rendered and costs nothing on the main thread.
+ * The color of the lines and circles is determined by the `text-cobalt/*` class of the wrapping element.
+ * The component has an `aria-hidden="true"` attribute to hide it from assistive technologies.
  */
+
 const NODES = [
+    // The positions of the nodes in the SVG composition.
+
   { x: 650, y: 100, r: 3 }, // 0
   { x: 780, y: 180, r: 4 }, // 1 — pulses
   { x: 900, y: 90, r: 3 }, // 2
@@ -35,6 +33,7 @@ const NODES = [
 ] as const;
 
 const EDGES: ReadonlyArray<readonly [number, number]> = [
+    // The edges of the lines in the SVG composition.
   [0, 1],
   [1, 2],
   [1, 3],

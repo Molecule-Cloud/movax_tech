@@ -83,7 +83,7 @@ body {
 
 /* Respect the user's OS-level motion preference. Anyone with this setting
  * on has usually asked for it for a real reason (vestibular disorders,
- * motion sensitivity) — so animations collapse to instant, not "faster". */
+ * motion sensitivity) - so animations collapse to instant, not "faster". */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

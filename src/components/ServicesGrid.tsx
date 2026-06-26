@@ -5,22 +5,12 @@
  * 3x3 grid on large screens, each with its own photo. A server component —
  * no interactivity needed here, which keeps this section's JS cost at zero.
  *
- * IMAGE SETUP (read this before running the site):
- * Each card points at `/services/<slug>.jpg` — a real file path under your
- * project's `public/services/` folder. Until those 9 files exist, the
- * browser will just show a broken-image icon where each photo would go;
- * that's expected, not a bug. Add a `.jpg` for each slug below to
- * `public/services/` and they'll appear with zero code changes. The `alt`
- * text on each also describes what that photo should actually show — worth
- * using as a guide while you're choosing images, both for consistency and
- * because real alt text matters for accessibility and SEO, not just as a
- * formality.
- *
  * `sizes` on the Image tells the browser which actual file size to fetch at
  * each breakpoint (full width on mobile, half on tablet, a third on
  * desktop) — without it, the browser would have to guess and likely
  * over-fetch a larger image than the slot actually needs.
  */
+
 import Image from "next/image";
 
 const SERVICES = [
